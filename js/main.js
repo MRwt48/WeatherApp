@@ -10,19 +10,19 @@ window.addEventListener("load", () => {
   let tepmeratureSection = document.querySelector(".temp-deg-section");
 
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
       const proxy = `https://cors-anywhere.herokuapp.com/`;
 
-      const api = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
+      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
 
       fetch(api)
-        .then(data => {
+        .then((data) => {
           return data.json();
         })
-        .then(data => {
+        .then((data) => {
           const { weather, name, main } = data;
           let description = weather[0].main;
 
