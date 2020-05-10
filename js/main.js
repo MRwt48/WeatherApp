@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
           locationTimezone.textContent = name;
           setIcons(document.querySelector(".icon"), iconId);
 
-          //aas
+          //changing temp format
           tepmeratureSection.addEventListener("click", () => {
             if (tepmeratureSection.children[1].textContent === "C") {
               tepmeratureSection.children[0].textContent = (
@@ -50,6 +50,7 @@ window.addEventListener("load", () => {
         });
     });
   } else {
+    locationTimezone.textContent = "Error Fetching Data";
   }
 
   function setIcons(iconElement, iconId) {
