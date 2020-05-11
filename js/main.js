@@ -23,11 +23,19 @@ window.addEventListener("load", () => {
           return data.json();
         })
         .then((data) => {
-          const { weather, name, main } = data;
+          // extracting values
+          const { weather, name, main, visibility, wind } = data;
           let description = weather[0].main;
-
           let temp = main.temp - 273.15;
+          let feelsLike = main.feels_like;
+          let tempMin = main.temp_min;
+          let tempMax = main.temp_max;
+          let pressure = main.pressure;
+          let humidity = main.humidity;
+          let windSpeed = wind.speed;
+          let windDeg = wind.deg;
           let iconId = weather[0].icon;
+
           //Setting DOM elements from api
           tempDeg.textContent = temp.toFixed(2);
           tempDes.textContent = description;
