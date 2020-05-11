@@ -23,18 +23,3 @@ body {
 .temperature {
   flex-direction: column;
 }
-
-.temp-deg-section {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  & span {
-    margin: 10px;
-    font-size: 30px;
-  }
-
-  & h2 {
-    font-size: 40px;
-  }
-}

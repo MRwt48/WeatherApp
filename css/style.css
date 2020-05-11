@@ -41,27 +41,4 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
-.temp-deg-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.temp-deg-section span {
-  margin: 10px;
-  font-size: 30px;
-}
-
-.temp-deg-section h2 {
-  font-size: 40px;
-}
 /*# sourceMappingURL=style.css.map */
