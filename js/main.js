@@ -41,7 +41,7 @@ window.addEventListener("load", () => {
       lat = position.coords.latitude;
 
       const proxy = `https://cors-anywhere.herokuapp.com/`;
-      const api = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
+      const api = `${proxy}http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
 
       fetch(api)
         .then((data) => {
@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
         })
         .then((data) => {
           // extracting values
-          const { weather, name, main, visibility, wind, sys, dt } = data;
+          const { weather, name, main, visibility, wind, sys } = data;
           let description = weather[0].main;
           let temp = main.temp - 273.15;
           let feelsLike = (main.feels_like - 273.15).toFixed(2);
