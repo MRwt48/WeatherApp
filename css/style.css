@@ -39,15 +39,18 @@ main {
   background-image: linear-gradient(90deg, #08d3a0, #00aeb4);
   color: white;
   padding: 1.5rem;
+}
+
+.temperature-main .container {
   position: relative;
 }
 
-.temperature-main .changeUnit {
+.temperature-main .container .changeUnit {
   position: absolute;
-  right: 30px;
+  right: 0;
 }
 
-.temperature-main .changeUnit #changeUnit {
+.temperature-main .container #changeUnit {
   background-color: #ffffff;
   border: none;
   outline: none;
@@ -73,7 +76,7 @@ main {
   transition: 0.2s ease-in-out;
 }
 
-.temperature-main .changeUnit #changeUnit:hover {
+.temperature-main .container #changeUnit:hover {
   background-image: radial-gradient(#00aeb4, #08d3a0);
   color: #ffffff;
 }
