@@ -1,44 +1,279 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  background: #f5f5f5;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  height: 100vh;
+}
+
+main {
+  background: #f5f5f5;
+}
+
+.col-md {
+  padding: 0 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col-md .extra-card {
+  width: 100%;
+}
+
+.temperature-main {
+  background-image: -webkit-gradient(linear, left top, right top, from(#08d3a0), to(#00aeb4));
+  background-image: linear-gradient(90deg, #08d3a0, #00aeb4);
+  color: white;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.temperature-main .changeUnit {
+  position: absolute;
+  right: 30px;
+}
+
+.temperature-main .changeUnit #changeUnit {
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  color: #00aeb4;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2f96a3), to(#303e8f));
-  background-image: linear-gradient(#2f96a3, #303e8f);
-  color: white;
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
-.location,
-.temperature {
-  height: 30vh;
-  width: 50%;
+.temperature-main .changeUnit #changeUnit:hover {
+  background-image: radial-gradient(#00aeb4, #08d3a0);
+  color: #ffffff;
+}
+
+.temperature-main .before-canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.temperature-main .before-canvas .canvas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  margin-left: 30px;
 }
 
-.temperature {
+.temperature-main .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.temperature-main .location .location-group {
+  margin-right: 10px;
+}
+
+.temperature-main .temp-deg {
+  font-size: 100px;
+  position: relative;
+  display: inline;
+  font-stretch: expanded;
+}
+
+.temperature-main .temp-deg::after {
+  content: attr(data-content);
+  position: absolute;
+  right: -40px;
+  opacity: 0.5;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 120px;
+}
+
+.temperature-main .temp-des {
+  font-size: 30px;
+}
+
+.temperature-extra {
+  background: #f5f5f5;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.temperature-extra .extra-card {
+  min-height: 200px;
+  background: #ffffff;
+  margin: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+.temperature-extra .extra-card .title {
+  color: #00aeb4;
+  font-weight: 700;
+  font-size: large;
+}
+
+.temperature-extra .extra-card .extra-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: calc(200px - 4.5rem);
+}
+
+.temperature-extra .extra-card .extra-content h6 {
+  color: #08d3a0;
+}
+
+.temperature-extra .extra-card .extra-content[id="temp-info"] {
+  display: block;
+}
+
+.temperature-extra .extra-card .extra-content[id="temp-info"] .temp-min-max {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.temperature-extra .extra-card .extra-content[id="temp-info"] .val {
+  font-size: 30px;
+}
+
+.temperature-extra .extra-card .extra-content[id="sunset-rise"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-height: calc(100% - 1.5rem);
+}
+
+.temperature-extra .extra-card .extra-content[id="sunset-rise"] [class^="sun"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.temperature-extra .extra-card .extra-content[id="sunset-rise"] .val {
+  font-size: 30px;
+}
+
+.temperature-extra .extra-card .extra-content[id="wind"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.temperature-extra .extra-card .extra-content[id="wind"] [class^="wind-"] {
+  width: 100%;
+}
+
+.temperature-extra .extra-card .extra-content[id="wind"] .val {
+  font-size: 30px;
+}
+
+.temperature-extra .extra-card .extra-content .val {
+  font-size: 50px;
+}
+
+.temperature-extra .extra-card .extra-content .unit {
+  font-size: larger;
+}
+
+@media (max-width: 586px) {
+  .before-canvas {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .temperature-main .container .before-canvas .canvas {
+    margin: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (max-width: 348px) {
+  .temperature-main
+.container
+.before-canvas
+.canvasBefore
+.temperature
+.temp-deg {
+    font-size: 70px;
+  }
+  .temperature-main
+.container
+.before-canvas
+.canvasBefore
+.temperature
+.temp-deg::after {
+    font-size: 90px;
+    right: -27px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

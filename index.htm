@@ -5,21 +5,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- bootstrap -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- bootstrap end -->
   </head>
   <body>
-    <div class="location">
-      <h1 class="location-timezone">Fetching Data</h1>
-      <canvas class="icon" width="128" height="128"></canvas>
-    </div>
+    <header></header>
 
-    <div class="temperature">
-      <div class="temp-deg-section">
-        <h2 class="temp-deg">0</h2>
-        <span>C</span>
+    <main>
+      <div class="temperature-main">
+        <div class="container">
+          <div class="before-canvas">
+            <div class="canvasBefore">
+              <div class="location">
+                <div class="location-group">
+                  <h1 class="location-timezone">Fetching Data</h1>
+                  <p class="currentDate"></p>
+                </div>
+              </div>
+
+              <div class="temperature">
+                <h2 class="temp-deg" data-content="C">0</h2>
+                <div class="temp-des">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Voluptatem, quidem.
+                </div>
+              </div>
+            </div>
+
+            <div class="canvas">
+              <canvas class="icon" width="256" height="256"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="changeUnit">
+          <button id="changeUnit">F</button>
+        </div>
       </div>
+      <div class="temperature-extra">
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <div class="extra-card temp-info">
+                <div class="title">Temperature</div>
+                <div class="extra-content" id="temp-info">
+                  <div class="feels-like">
+                    <h6>Feels Like</h6>
+                    <span class="val">0</span><span class="unit">C</span>
+                  </div>
+                  <div class="temp-min-max">
+                    <div class="min">
+                      <h6>Min</h6>
+                      <span class="val">0</span><span class="unit">C</span>
+                    </div>
+                    <div class="max">
+                      <h6>Max</h6>
+                      <span class="val">0</span><span class="unit">C</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="extra-card sunset-rise">
+                <div class="title">Sunrise & Sunset</div>
+                <div class="extra-content" id="sunset-rise">
+                  <div class="sunrise">
+                    <canvas
+                      class="canvas-sunrise"
+                      width="50"
+                      height="50"
+                    ></canvas>
+                    <div class="not-canvas">
+                      <span class="val">0</span> <span class="unit">AM</span>
+                    </div>
+                  </div>
+                  <div class="sunset">
+                    <canvas
+                      class="canvas-sunset"
+                      width="50"
+                      height="50"
+                    ></canvas>
+                    <div class="not-canvas">
+                      <span class="val">0</span> <span class="unit">PM</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="extra-card wind">
+                <div class="title">Wind Status</div>
+                <div class="extra-content" id="wind">
+                  <div class="wind-speed">
+                    <h6>Speed</h6>
+                    <span class="val">0</span> <span class="unit">m/s</span>
+                  </div>
+                  <div class="wind-dir">
+                    <h6>Direction</h6>
+                    <span class="val">0</span> <span class="unit">deg</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="extra-card visibility">
+                <div class="title">Visibility</div>
+                <div class="extra-content" id="visibility">
+                  <span class="val">0</span> <span class="unit">km</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="extra-card humidity">
+                <div class="title">Humidity</div>
+                <div class="extra-content" id="humidity">
+                  <span class="val">0</span> <span class="unit">%</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="extra-card pressure">
+                <div class="title">Pressure</div>
+                <div class="extra-content" id="pressure">
+                  <span class="val">0</span> <span class="unit">hPa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-      <div class="temp-des"></div>
-    </div>
+    <footer></footer>
 
     <script src="js/skycons.js"></script>
     <script src="js/iconData.js"></script>
